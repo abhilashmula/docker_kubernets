@@ -1,0 +1,47 @@
+{
+        "port": "3333",
+        "host": "192.168.1.146",
+        "queries": [{
+                "object_name": "kafka.consumer:type=consumer-coordinator-metrics,client-id=*",
+                "attributes": ["assigned-partitions","commit-latency-avg","commit-rate","heartbeat-rate","heartbeat-response-time-max",
+                        "join-rate","join-time-avg","join-time-max","last-heartbeat-seconds-ago","sync-rate","sync-time-avg","sync-time-max"],
+                "resultAlias": "monitor-consumer.consumer-coordinator-metrics;client-id"
+            },
+            {
+                "object_name": "kafka.consumer:type=consumer-fetch-manager-metrics,client-id=*",
+                "attributes": ["bytes-consumed-rate","fetch-latency-avg","fetch-latency-max","records-consumed-rate","records-lag-max",
+                        "records-per-request-avg"],
+                "resultAlias": "monitor-consumer.consumer-fetch-manager-metrics,client-id"
+            },
+            {
+                "object_name": "kafka.consumer:type=consumer-fetch-manager-metrics,client-id=*,topic=*",
+                "attributes": ["bytes-consumed-rate","fetch-size-avg","fetch-size-max","records-consumed-rate","records-per-request-avg"],
+                "resultAlias": "monitor-consumer-fetch-manager-metrics;client-id,topic"
+            },
+            {
+                "object_name": "kafka.consumer:type=consumer-metrics,client-id=*",
+                "attributes": [],
+                "resultAlias": "monitor-consumer-metrics;client-id"
+            },
+            {
+                "object_name": "kafka.consumer:type=consumer-node-metrics,client-id=*,node-id=*",
+                "attributes": ["incoming-byte-rate","outgoing-byte-rate","request-latency-avg","request-rate","request-size-avg","response-rate"],
+                "resultAlias": "monitor-consumer-node-metrics;client-id,node-id"
+            },
+            {
+                "object_name": "kafka.producer:type=producer-metrics,client-id=*",
+                "attributes": [],
+                "resultAlias": "monitor-producer-metrics;client-id"
+            },
+            {
+                "object_name": "kafka.producer:type=producer-node-metrics,client-id=*,node-id=*",
+                "attributes": ["incoming-byte-rate","outgoing-byte-rate","request-latency-avg","request-rate","request-size-avg","response-rate"],
+                "resultAlias": "monitor-producer-node-metrics;client-id,node-id"
+            },
+            {
+                "object_name": "kafka.producer:type=producer-topic-metrics,client-id=*,topic=*",
+                "attributes": [],
+                "resultAlias": "monitor-producer-topic-metrics;client-id,topic"
+            }
+    ]
+}
